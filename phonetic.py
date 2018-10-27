@@ -17,7 +17,7 @@ def otan(word):
 
 def main(argv):
     word = argv[1].upper()
-    print otan(word)
+    print (otan(word))
 
 
 if __name__ == "__main__":
