@@ -14,7 +14,7 @@ def gen(pw_length):
 
 def main(argv):
     pw_length = int(argv[1]) if len(argv) > 1 else 15
-    print gen(pw_length)
+    print(gen(pw_length))
 
 
 if __name__ == "__main__":
