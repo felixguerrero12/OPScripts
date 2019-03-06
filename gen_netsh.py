@@ -1,4 +1,6 @@
-import sys, ipaddress
+import ipaddress
+import sys
+import os
 
 
 def print_rule(x):
@@ -6,11 +8,16 @@ def print_rule(x):
 
 
 def main(argv):
-    w_str = list(sys.argv[1:])
-    x = list(ipaddress.IPv4Network('192.168.1.0/24'))[1:-1]
+    whitelist = "wipaddr.txt"
+    if os.path.exists(whitelist) and os.path.getsize(whitelist) > 0:
+        with open(whitelist, 'r') as f:
+            w_str = f.read().splitlines()
+    else:
+        w_str = list(sys.argv[1:])
+    x = list(ipaddress.IPv4Network(u'192.168.1.0/24'))[1:-1]
     for ip in x:
-         if str(ip) not in w_str:
-                print_rule(ip)
+        if str(ip) not in w_str:
+            print_rule(ip)
 
 
 if __name__ == "__main__":
