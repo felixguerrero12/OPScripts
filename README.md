@@ -41,3 +41,7 @@ phonetic accepts a string and converts the word into a relating speech sound for
 Example: python phonetic.py Felix
 <br/>
 Output: Foxtrot Echo Lima India Xray
+
+# geoip.py
+Geoip accepts multiple system arguements are input to do a loop to get the geo location of the ip address in question. You can also create a file called ipaddr.txt to do the same.
+<br/>
