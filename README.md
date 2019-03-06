@@ -1,5 +1,3 @@
-# ops description
-
 # gen_iptables.py -
 Generates iptables rules by either creating a file called wipaddr.txt with ip address in the subnet located in line 25 or adding the subnets to the arguement.
 
