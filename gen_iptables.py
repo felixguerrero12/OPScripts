@@ -16,9 +16,9 @@ def print_closure():
 
 
 def main(argv):
-    blacklist = "bipaddr.txt"
-    if os.path.exists(blacklist) and os.path.getsize(blacklist) > 0:
-        with open(blacklist, 'r') as f:
+    whitelist = "bipaddr.txt"
+    if os.path.exists(whitelist) and os.path.getsize(whitelist) > 0:
+        with open(whitelist, 'r') as f:
             w_str = f.read().splitlines()
     else:
         w_str = list(sys.argv[1:])
