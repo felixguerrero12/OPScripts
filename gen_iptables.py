@@ -16,7 +16,7 @@ def print_closure():
 
 
 def main(argv):
-    whitelist = "bipaddr.txt"
+    whitelist = "wipaddr.txt"
     if os.path.exists(whitelist) and os.path.getsize(whitelist) > 0:
         with open(whitelist, 'r') as f:
             w_str = f.read().splitlines()
