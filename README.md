@@ -42,6 +42,9 @@ Example: python phonetic.py Felix
 <br/>
 Output: Foxtrot Echo Lima India Xray
 
-# geoip.py
-Geoip accepts multiple system arguements are input to do a loop to get the geo location of the ip address in question. You can also create a file called ipaddr.txt to do the same.
+# ip-api.py
+ipstack.py iterates through a file grabbing ip addreses and does a whois lookup to identify the geographical location of the ip address. If the file ipaddr.txt is not available, it accepts system arguements. This uses ip-api to do the whois query.
 <br/>
+
+# ipstack.py
+ipstack.py iterates through a file grabbing ip addreses and does a whois lookup to identify the geographical location of the ip address. If the file ipaddr.txt is not available, it accepts system arguements. This uses ipstack to do the whois query.
