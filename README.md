@@ -36,11 +36,9 @@ Output: "Sw,.>pfF9<^._JR/-tpfy"
 
 # phonetic.py
 phonetic accepts a string and converts the word into a relating speech sound for each character.
-
-<br/>
 Example: python phonetic.py Felix
-<br/>
 Output: Foxtrot Echo Lima India Xray
+<br/>
 
 # ip-api.py
 ip-api.py iterates through a file grabbing ip addreses and does a whois lookup to identify the geographical location of the ip address. If the file ipaddr.txt is not available, it accepts system arguements. This uses ip-api to do the whois query.
