@@ -50,3 +50,6 @@ ipstack.py iterates through a file grabbing ip addreses and does a whois lookup 
 
 # rsa_generate.py
 rsa_generate.py generates a private key and public key. This python script generates a 2048 bytes size private.pem and receiver.pem.
+
+# twitch_msg.py
+twitch_msg.py uses a twitch api key to send messages to twitch on specific channels. This can be used to send messages to your favorites channels.
