@@ -53,3 +53,6 @@ rsa_generate.py generates a private key and public key. This python script gener
 
 # twitch_msg.py
 twitch_msg.py uses a twitch api key to send messages to twitch on specific channels. This can be used to send messages to your favorites channels.
+
+# hibp.py
+hibp.py uses system arguements or file called email.txt to query against have I been pwned to see if the emails are part of a compromised dataset.
