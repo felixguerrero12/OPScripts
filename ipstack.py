@@ -2,11 +2,17 @@ import sys
 import os
 import requests
 import json
+from pandas.io.json import json_normalize
+
 
 def results(ipaddr):
-    r = requests.get('http://api.ipstack.com/' + str(ipaddr) + '?access_key=[KEY]&fields=success,country_name,continent_code,ip,&output=json')
-    data = json.dumps(r.json(), indent=4)
-    return data
+        headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'}
+	r = requests.get('http://api.ipstack.com/' + str(ipaddr)
+	+ '?access_key=[key]'
+	+ '&hostname=1'
+	+ ', headers=headers')
+	data = json.dumps(r.json(), indent=4)
+	return data
 
 
 def main(argv):
