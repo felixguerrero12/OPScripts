@@ -58,4 +58,10 @@ twitch_msg.py uses a twitch api key to send messages to twitch on specific chann
 hibp.py uses system arguements or file called email.txt to query against have I been pwned to see if the emails are part of a compromised dataset.
 
 # gen_twilio_key.py
-Use twilio rest as a client to generate an API Key using the Account SID and Authentication Token,
+Use twilio rest as a client to generate an API Key using the Account SID and Authentication Token.
+
+# word_occurrence.py
+Accept a file name occurences.txt as input to create a list of occurances of how many a word shows up.
+
+# letter_occurrence.py
+Accept a file name occurences.txt as input to create a list of occurances of how many a letter shows up.
