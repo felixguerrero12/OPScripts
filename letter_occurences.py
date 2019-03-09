@@ -14,7 +14,7 @@ def main():
     f=open("occurences.txt", "r")
     if f.mode == 'r':
 	    contents=f.read()
-    print(count_dict(contents))
+    count_dict(contents)
 
 
 if __name__ == "__main__":
