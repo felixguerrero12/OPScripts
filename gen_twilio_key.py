@@ -1,8 +1,8 @@
 from twilio.rest import Client
 
 
-account_sid = 'AC27c7e6eb55958253856a791b7f00c386'
-auth_token = '94002dc1687dd086162621cd5410d64a'
+account_sid = ''
+auth_token = ''
 
 
 def gen_key(account_sid, auth_token):
