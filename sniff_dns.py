@@ -1,7 +1,7 @@
 #! /usr/bin/python
+
 from scapy.all import *
 import sys
-
 
 try:
         interface = 'en0'
@@ -10,13 +10,12 @@ except KeyboardInterrupt:
         print("[*] Exiting...")
         sys.exit(1)
 
-
-def dns(pkt):
+def capture(pkt):
         if IP in pkt:
-                src = pkt[IP].src
-                dst = pkt[IP].dst
+                ip_src = pkt[IP].src
+                ip_dst = pkt[IP].dst
                 if pkt.haslayer(DNS) and pkt.getlayer(DNS).qr == 0:
-                        print(src + " - > " + dst + " " + "request: " + str(pkt.getlayer(DNS).qd.qname))
+                        print(ip_src + " - > " + ip_dst + " " + "Domain requested: " + str(pkt.getlayer(DNS).qd.qname))
 
-
-sniff(iface = interface,filter = "port 53", prn = dns, store = 0)
+sniff(iface = interface, prn = capture, store = 0)
+print("\n[*] Shutting Down...")
