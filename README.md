@@ -66,5 +66,5 @@ Accept a file name occurences.txt as input to create a list of occurances of how
 # letter_occurrence.py
 Accept a file name occurences.txt as input to create a list of occurances of how many a letter shows up.
 
-# sniff_dns.py
-Sniff port 53 for any dns Resource Records. Used for capturing domain requests when opening a binary that is making C2 Communications. This can easily be done with tcpdump using `tcpdump -ni en0 port 53`.
+# sniff5380.py
+This python scripts turns the en0 interface into promiscuous mode and has if statements to do search for traffic related to DNS or destination port 80. If it finds traffic on port 53 it will attempt to identify if its dns, and a elif statement to identify if the traffic is for port 80 and if so print out the http request.
