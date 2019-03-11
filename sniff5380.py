@@ -40,9 +40,15 @@ def capture(pkt):
                    print(domain_request + " " +  "translates to:" + " " +  " " + domain_rdata)
                elif pkt.haslayer(TCP) and pkt.getlayer(TCP).dport == 80 and pkt.haslayer(Raw):
                     payload = pkt[Raw].load.decode('utf-8', 'ignore')
-                    print(ip_src + " - > " + ip_dst + " " + "Full URL: " + find_url_from_headers(extract_headers_from_request_payload(payload)))
+                    print(ip_src + ":" + str(pkt[TCP].sport) +" - > " + ip_dst + ":" +
+			    str(pkt[TCP].dport) + " " + "Full URL: " + find_url_from_headers(extract_headers_from_request_payload(payload)))
                else:
-                    print("Communications to IP ADDR:" + pkt[IP].src + ":" + str(pkt.getlayer(TCP).sport) +" -> " + pkt[IP].dst + ":" + str(pkt.getlayer(TCP).dport))
+                    if pkt[IP].proto == 6:
+                        print("TCP Communications: " + pkt[IP].src + ":" + str(pkt[TCP].sport)
+				+" -> " + pkt[IP].dst + ":" + str(pkt.getlayer(TCP).dport))
+                    elif pkt[IP].proto == 17:
+                        print("UDP Communications: " + pkt[IP].src + ":" + str(pkt[UDP].sport)
+				+" -> " + pkt[IP].dst + ":" + str(pkt.getlayer(UDP).dport))
 
 def main():
 	interface = 'en0'
