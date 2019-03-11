@@ -8,7 +8,10 @@ def capture(pkt):
                 ip_src = pkt[IP].src
                 ip_dst = pkt[IP].dst
                 if pkt.haslayer(DNS) and pkt.getlayer(DNS).qr == 0:
-                        print(ip_src + " - > " + ip_dst + " " + "Domain: " + str(pkt.getlayer(DNS).qd.qname))
+                    print(ip_src + " - > " + ip_dst + " " + "Domain requested: " + str(pkt.getlayer(DNS).qd.qname))
+                if pkt.haslayer(TCP) and pkt.getlayer(TCP).dport == 80 and pkt.haslayer(Raw):
+                    ret = "\n".join(pkt.sprintf("{Raw:%Raw.load%}\n").split(r"\r\n"))
+                    print(ret)
 
 def main():
 	interface = 'en0'
