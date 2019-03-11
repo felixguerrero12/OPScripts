@@ -67,4 +67,4 @@ Accept a file name occurences.txt as input to create a list of occurances of how
 Accept a file name occurences.txt as input to create a list of occurances of how many a letter shows up.
 
 # sniff5380.py
-This python scripts turns the en0 interface into promiscuous mode and has if statements to do search for traffic related to DNS or destination port 80. If it finds traffic on port 53 it will attempt to identify if its dns, and a elif statement to identify if the traffic is for port 80 and if so print out the http request.
+This python scripts turns the en0 interface into promiscuous mode. This capture all traffic parses out dns request and http request. If the communication is outside of dns or http, it prints out just metadata. 
