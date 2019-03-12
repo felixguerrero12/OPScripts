@@ -25,19 +25,19 @@ def capture(pkt):
         if IP in pkt:
                ip_src = pkt[IP].src
                ip_dst = pkt[IP].dst
-               if pkt.haslayer(DNS) and pkt.getlayer(DNS).qr == 0:
-                    print(pkt['IP'].src + " - > " + pkt['IP'].dst + " " + "Domain requested: " + str(pkt.getlayer(DNS).qd.qname))
-               elif pkt.haslayer(DNS) and pkt.getlayer(DNS).qr == 1:
-                   try:
-                       domain_request = str(pkt[DNS].qd.qname)
-                   except:
-                       domain_request = ""
-                   try:
-                       domain_rdata = str(pkt[DNS].an.rdata)
-                   except:
-                       domain_rdata = ""
-
-                   print(domain_request + " " +  "translates to:" + " " +  " " + domain_rdata)
+               if pkt.haslayer(DNS):
+                   if pkt.getlayer(DNS).qr == 0:
+                       print(pkt['IP'].src + " - > " + pkt['IP'].dst + " " + "Domain requested: " + str(pkt.getlayer(DNS).qd.qname))
+                   elif pkt.getlayer(DNS).qr == 1:
+                       try:
+                           domain_request = str(pkt[DNS].qd.qname)
+                       except:
+                           domain_request = " "
+                       try:
+                           domain_rdata = str(pkt[DNS].an.rdata)
+                       except:
+                           domain_rdata = " "
+                       print(domain_request + " " +  "translates to:" + " " +  " " + domain_rdata)
                elif pkt.haslayer(TCP) and pkt.getlayer(TCP).dport == 80 and pkt.haslayer(Raw):
                     payload = pkt[Raw].load.decode('utf-8', 'ignore')
                     print(ip_src + ":" + str(pkt[TCP].sport) +" - > " + ip_dst + ":" +
