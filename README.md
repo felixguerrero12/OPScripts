@@ -4,11 +4,13 @@ Generates iptables rules by either creating a file called wipaddr.txt with ip ad
 <br/>
 Example: python3 gen_iptables.py 192.168.1.1
 <br/>
-Output: 
+Output:
+```
 iptables -A INPUT -p tcp -s 192.168.1.1 -j ACCEPT
 iptables -A OUTPUT -p tcp -s 192.168.1.1 -j ACCEPT
 iptables -A INPUT -j DROP
 iptables -A OUTPUT -j DROP
+```
 
 This python script works on both python2 and python3.
 
