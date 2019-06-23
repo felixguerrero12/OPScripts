@@ -5,6 +5,7 @@ Generates iptables rules by either creating a file called wipaddr.txt with ip ad
 Example: python3 gen_iptables.py 192.168.1.1
 <br/>
 Output:
+
 ```
 iptables -A INPUT -p tcp -s 192.168.1.1 -j ACCEPT
 iptables -A OUTPUT -p tcp -s 192.168.1.1 -j ACCEPT
