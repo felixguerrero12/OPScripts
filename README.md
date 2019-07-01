@@ -1,3 +1,24 @@
+# hunter.py
+Use Hunter.io to search for potential targets gathered through open source platforms. Currently this hunter.py only limits up to 100 e-mail addresses. The output is formatted in First Name, Last name and e-mail address.
+
+<br/>
+Example: python hunter.py google.com
+<br/>
+
+Subsection of the output:
+```
+Nancy Chen,nancychen@google.com
+Katherine Kuan,katherinekuan@google.com
+Nick Pollard,nickpollard@google.com
+Brendan Douglas,brendandouglas@google.com
+Katie Hockman,katiehockman@google.com
+Patrice Arruda,patricearruda@google.com
+Mike Digman,digman@google.com
+Josh Estelle,jestelle@google.com
+Zhenni Huang,zhennihuang@google.com
+Joseph Wen,josephwen@google.com
+```
+
 # gen_iptables.py -
 Generates iptables rules by either creating a file called wipaddr.txt with ip address in the subnet located in line 25 or adding the subnets to the arguement.
 
