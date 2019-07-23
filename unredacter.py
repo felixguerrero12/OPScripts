@@ -4,25 +4,29 @@ def unredacter(unredacted_ip, ip):
     for i in range(len(unredacted_ip)):
         if unredacted_ip[i].isdigit() == True :
             ip.append(unredacted_ip[i])
-        elif unredacted_ip[i] == ".":
-            ip.append(unredacted_ip[i])
-        else:
-            pass
+	elif unredacted_ip[i] == ".":
+	    ip.append(unredacted_ip[i])
+	else:
+	    pass
     cleaned_ip = "".join(ip)
     verify_format(cleaned_ip)
 
 def verify_format(cleaned_ip):
     if cleaned_ip.count('.') == 3:
-        ip_pieces = [ip_section for ip_section in cleaned_ip.split('.')]
-        if len(ip_pieces) == 4:
-            for ip_section in ip_pieces:
-                if not 0<= int(ip_section) <= 255:
-                    print "Invalid ip address: " + cleaned_ip +" due to " + ip_section
-        else:
-            print "Invalid format #2 - Not enough numbers"
-
+	ip_pieces = [ip_section for ip_section in cleaned_ip.split('.')]
+	if len(ip_pieces) == 4:
+	    for ip_section in ip_pieces:
+		if not 0<= int(ip_section) <= 255:
+		    print "Invalid ip address: " + cleaned_ip +" due to " + ip_section
+		    return False
+		    exit()
+	    print "Valid IP Address: " + cleaned_ip
+	else:
+	    print "Invalid format #2 - Not enough numbers"
+	    return False
     else:
-        print "Invalid Format #1 - Not enough dots"
+	print "Invalid Format #1 - Not enough dots"
+	return False
 
 
 def main(argv):
