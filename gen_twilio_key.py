@@ -8,9 +8,9 @@ auth_token = ''
 def gen_key(account_sid, auth_token):
     client = Client(account_sid, auth_token)
     new_key = client.new_keys.create()
-    print('Account SID: ' + account_sid)
-    print('Authentication token: ' + auth_token)
-    print('API Key: ' + new_key.sid)
+    print(f'Account SID: {account_sid}')
+    print(f'Authentication token: {auth_token}')
+    print(f'API Key: {new_key.sid}')
 
 
 def main(account_sid, auth_token):

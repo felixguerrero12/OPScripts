@@ -5,9 +5,11 @@ import json
 
 
 def results(ipaddr):
-    r = requests.get('http://ip-api.com/json/' + str(ipaddr) + '?fields=status,country,countryCode,reverse,query')
-    data = json.dumps(r.json(), indent=4)
-    return data
+    r = requests.get(
+        f'http://ip-api.com/json/{str(ipaddr)}?fields=status,country,countryCode,reverse,query'
+    )
+
+    return json.dumps(r.json(), indent=4)
 
 
 def main(argv):

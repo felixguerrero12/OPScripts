@@ -4,7 +4,9 @@ import os
 
 
 def print_rule(x):
-    print("netsh advfirewall firewall add rule name=" + str(x) + " dir=in interface=any action=block remoteip=" + str(x))
+    print(
+        f"netsh advfirewall firewall add rule name={str(x)} dir=in interface=any action=block remoteip={str(x)}"
+    )
 
 
 def main(argv):

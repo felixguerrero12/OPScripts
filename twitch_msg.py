@@ -11,8 +11,8 @@ MODT = False
 # Connecting to Twitch IRC by passing credentials and joining a certain channel
 s = socket.socket()
 s.connect((HOST, PORT))
-s.send("PASS " + PASS + "\r\n")
-s.send("NICK " + NICK + "\r\n")
+s.send(f"PASS {PASS}" + "\r\n")
+s.send(f"NICK {NICK}" + "\r\n")
 
 message = "Sample Message"
 
@@ -22,5 +22,5 @@ channel = {
     }
 
 for i in channel:
-    s.send("JOIN " + i + "\r\n")
-    s.send("PRIVMSG #" + i + " :" + message + "\r\n")
+    s.send(f"JOIN {i}" + "\r\n")
+    s.send(f"PRIVMSG #{i} :{message}" + "\r\n")
