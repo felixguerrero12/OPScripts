@@ -3,11 +3,9 @@
 
 
 def count_dict(mystring):
-    d = {}
-    for w in mystring:
-        d[w] = mystring.count(w)
+    d = {w: mystring.count(w) for w in mystring}
     for k in sorted(d):
-        print (k + ': ' + str(d[k]))
+        print(f'{k}: {str(d[k])}')
 
 
 def main():

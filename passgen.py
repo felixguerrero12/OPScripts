@@ -6,7 +6,7 @@ import sys
 def gen(pw_length):
     characters = string.ascii_letters + string.digits + string.punctuation
     mypw = ""
-    for i in range(pw_length):
+    for _ in range(pw_length):
         next_index = random.randrange(len(characters))
         mypw += characters[next_index]
     return mypw

@@ -7,12 +7,10 @@ from pandas.io.json import json_normalize
 
 def results(ipaddr):
         headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'}
-	r = requests.get('http://api.ipstack.com/' + str(ipaddr)
-	+ '?access_key=[key]'
-	+ '&hostname=1'
-	+ ', headers=headers')
-	data = json.dumps(r.json(), indent=4)
-	return data
+        r = requests.get(
+            f'http://api.ipstack.com/{str(ipaddr)}?access_key=[key]&hostname=1, headers=headers'
+        )
+        return json.dumps(r.json(), indent=4)
 
 
 def main(argv):

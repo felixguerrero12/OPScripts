@@ -2,12 +2,10 @@ import sys
 
 def unredacter(unredacted_ip, ip):
     for i in range(len(unredacted_ip)):
-        if unredacted_ip[i].isdigit() == True :
+        if unredacted_ip[i].isdigit() == True:
             ip.append(unredacted_ip[i])
-	elif unredacted_ip[i] == ".":
-	    ip.append(unredacted_ip[i])
-	else:
-	    pass
+        elif unredacted_ip[i] == ".":
+            ip.append(unredacted_ip[i])
     cleaned_ip = "".join(ip)
     verify_format(cleaned_ip)
 

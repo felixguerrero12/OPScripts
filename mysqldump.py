@@ -5,18 +5,15 @@ cur = con.cursor()
 
 cur.execute("SHOW TABLES")
 data = ""
-tables = []
-for table in cur.fetchall():
-    tables.append(table[0])
-
+tables = [table[0] for table in cur.fetchall()]
 for table in tables:
     #data += "DROP TABLE IF EXISTS `" + str(table) + "`;"
-    cur.execute("SHOW CREATE TABLE `" + str(table) + "`;")
+    cur.execute(f"SHOW CREATE TABLE `{str(table)}`;")
     data += "\n" + str(cur.fetchone()[1]) + ";\n\n"
 
-    cur.execute("SELECT * FROM `" + str(table) + "`;")
+    cur.execute(f"SELECT * FROM `{str(table)}`;")
     for row in cur.fetchall():
-        data += "INSERT INTO `" + str(table) + "` VALUES("
+        data += f"INSERT INTO `{str(table)}` VALUES("
         first = True
         for field in row:
             if not first:
@@ -31,6 +28,5 @@ for table in tables:
 now = datetime.datetime.now()
 filename = str(os.getenv("HOME")) + "/backup_" + now.strftime("%Y-%m-%d_%H:%M") + ".sql"
 
-FILE = open(filename,"w")
-FILE.writelines(data)
-FILE.close()
+with open(filename,"w") as FILE:
+    FILE.writelines(data)

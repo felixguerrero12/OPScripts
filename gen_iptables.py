@@ -4,11 +4,11 @@ import os
 
 
 def print_rule_input(x):
-    print("iptables -A INPUT -p tcp -s " + str(x) + " -j ACCEPT")
+    print(f"iptables -A INPUT -p tcp -s {str(x)} -j ACCEPT")
 
 
 def print_rule_output(x):
-    print("iptables -A OUTPUT -p tcp -s " + str(x) + " -j ACCEPT")
+    print(f"iptables -A OUTPUT -p tcp -s {str(x)} -j ACCEPT")
 
 
 def print_closure():

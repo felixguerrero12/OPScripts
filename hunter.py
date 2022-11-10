@@ -8,10 +8,10 @@ def results(domain):
         "Accept-Encoding": "gzip, deflate",
         "User-Agent" : "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36"
         }
-        response = requests.get('https://api.hunter.io/v2/domain-search?domain=' + domain +
-                '&api_key='+ api_key + '&limit=100')
-        data = response.json()
-        return data
+        response = requests.get(
+            f'https://api.hunter.io/v2/domain-search?domain={domain}&api_key={api_key}&limit=100'
+        )
+        return response.json()
 
 
 def main(argv):
